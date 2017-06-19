@@ -88,10 +88,41 @@ class HomeTableViewController: UITableViewController {
         present(optionMenu, animated: true, completion: nil)
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            //delete the row form the data source
+            golfCourseNames.remove(at: indexPath.row)
+            Date.remove(at: indexPath.row)
+            golfScore.remove(at: indexPath.row)
+            golfCourseImages.remove(at: indexPath.row)
+        }
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        
+    }
     
-    
-    
-    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        // Social Sharing Button
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
+                let defaultText = "New score posted at " +
+                    self.golfCourseNames[indexPath.row]
+            if let imageToShare = UIImage(named: self.golfCourseNames[indexPath.row]) {
+                            let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+            }
+        })
+        // Delete button
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
+                // Delete the row from the data source
+                self.golfCourseNames.remove(at: indexPath.row)
+                self.Date.remove(at: indexPath.row)
+                self.golfScore.remove(at: indexPath.row)
+                self.golfCourseImages.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+        })
+        return [deleteAction, shareAction]
+    }
     
     
     /*
