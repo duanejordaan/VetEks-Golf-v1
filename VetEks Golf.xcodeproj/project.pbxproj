@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DBBDD31F1EF7F14800D09C13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */; };
-		DBBDD3211EF7F14800D09C13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3201EF7F14800D09C13 /* ViewController.swift */; };
+		DBBDD3211EF7F14800D09C13 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3201EF7F14800D09C13 /* LoginVC.swift */; };
 		DBBDD3241EF7F14800D09C13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD3221EF7F14800D09C13 /* Main.storyboard */; };
 		DBBDD3271EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3251EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld */; };
 		DBBDD3291EF7F14800D09C13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD3281EF7F14800D09C13 /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		DBBDD31B1EF7F14800D09C13 /* VetEks Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VetEks Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DBBDD3201EF7F14800D09C13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DBBDD3201EF7F14800D09C13 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		DBBDD3231EF7F14800D09C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBBDD3261EF7F14800D09C13 /* VetEks_Golf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VetEks_Golf.xcdatamodel; sourceTree = "<group>"; };
 		DBBDD3281EF7F14800D09C13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */,
-				DBBDD3201EF7F14800D09C13 /* ViewController.swift */,
+				DBBDD3201EF7F14800D09C13 /* LoginVC.swift */,
 				DBBDD3221EF7F14800D09C13 /* Main.storyboard */,
 				DBBDD3281EF7F14800D09C13 /* Assets.xcassets */,
 				DBBDD32A1EF7F14800D09C13 /* LaunchScreen.storyboard */,
@@ -140,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBDD3271EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld in Sources */,
-				DBBDD3211EF7F14800D09C13 /* ViewController.swift in Sources */,
+				DBBDD3211EF7F14800D09C13 /* LoginVC.swift in Sources */,
 				DBBDD31F1EF7F14800D09C13 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
