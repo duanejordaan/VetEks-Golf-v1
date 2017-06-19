@@ -13,6 +13,8 @@
 		DBBDD3271EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3251EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld */; };
 		DBBDD3291EF7F14800D09C13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD3281EF7F14800D09C13 /* Assets.xcassets */; };
 		DBBDD32C1EF7F14800D09C13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD32A1EF7F14800D09C13 /* LaunchScreen.storyboard */; };
+		DBBDD3361EF7F43400D09C13 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3351EF7F43400D09C13 /* HomeTableViewController.swift */; };
+		DBBDD3381EF7F58700D09C13 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3371EF7F58700D09C13 /* HomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		DBBDD3281EF7F14800D09C13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBBDD32B1EF7F14800D09C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBBDD32D1EF7F14800D09C13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBBDD3351EF7F43400D09C13 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		DBBDD3371EF7F58700D09C13 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			children = (
 				DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */,
 				DBBDD3201EF7F14800D09C13 /* LoginVC.swift */,
+				DBBDD3351EF7F43400D09C13 /* HomeTableViewController.swift */,
+				DBBDD3371EF7F58700D09C13 /* HomeTableViewCell.swift */,
 				DBBDD3221EF7F14800D09C13 /* Main.storyboard */,
 				DBBDD3281EF7F14800D09C13 /* Assets.xcassets */,
 				DBBDD32A1EF7F14800D09C13 /* LaunchScreen.storyboard */,
@@ -139,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBBDD3361EF7F43400D09C13 /* HomeTableViewController.swift in Sources */,
+				DBBDD3381EF7F58700D09C13 /* HomeTableViewCell.swift in Sources */,
 				DBBDD3271EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld in Sources */,
 				DBBDD3211EF7F14800D09C13 /* LoginVC.swift in Sources */,
 				DBBDD31F1EF7F14800D09C13 /* AppDelegate.swift in Sources */,
