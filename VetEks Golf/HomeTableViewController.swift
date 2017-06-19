@@ -76,17 +76,17 @@ class HomeTableViewController: UITableViewController {
         
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   // override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //create an option menu as an action sheet
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+   //     let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
         
         //add actions to the menu
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        optionMenu.addAction(cancelAction)
+    //    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    //    optionMenu.addAction(cancelAction)
         
         //display the menu
-        present(optionMenu, animated: true, completion: nil)
-    }
+     //   present(optionMenu, animated: true, completion: nil)
+//}
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -124,6 +124,18 @@ class HomeTableViewController: UITableViewController {
         shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
         deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0);        return [deleteAction, shareAction]
     }
+    
+    
+    override func prepare(for seque: UIStoryboardSegue, sender: Any?) {
+        if seque.identifier == "showScoreCard" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = seque.destination as!
+                ScoreCardViewController
+                destinationController.scoreCardImage =
+                    golfCourseImages[indexPath.row]
+            }
+        }    }
+    
     
     
     /*

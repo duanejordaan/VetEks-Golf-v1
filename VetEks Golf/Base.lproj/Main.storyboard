@@ -177,6 +177,7 @@
                                     <outlet property="dateLabel" destination="DBY-Jh-ShF" id="j6x-Ak-6jT"/>
                                     <outlet property="scoreLabel" destination="JCQ-3e-DqO" id="XhI-jF-o1s"/>
                                     <outlet property="thumbnailImageView" destination="0F7-Kr-Rci" id="WKb-Sm-Zdz"/>
+                                    <segue destination="iDU-lh-bm8" kind="show" identifier="showScoreCard" id="xdx-ee-f3L"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -190,6 +191,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQA-tJ-w5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1744.8" y="123.68815592203899"/>
+        </scene>
+        <!--Score Card View Controller-->
+        <scene sceneID="mhJ-4K-Zc6">
+            <objects>
+                <viewController id="iDU-lh-bm8" customClass="ScoreCardViewController" customModule="VetEks_Golf" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jhg-Ei-Jsy"/>
+                        <viewControllerLayoutGuide type="bottom" id="k4j-wF-F7e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jyR-rK-oVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hyI-xG-U5A">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hyI-xG-U5A" firstAttribute="top" secondItem="jyR-rK-oVQ" secondAttribute="top" id="ELU-T1-Yd3"/>
+                            <constraint firstAttribute="trailing" secondItem="hyI-xG-U5A" secondAttribute="trailing" id="I7f-L9-1Y5"/>
+                            <constraint firstItem="hyI-xG-U5A" firstAttribute="leading" secondItem="jyR-rK-oVQ" secondAttribute="leading" id="sDB-6m-vgV"/>
+                            <constraint firstItem="k4j-wF-F7e" firstAttribute="top" secondItem="hyI-xG-U5A" secondAttribute="bottom" id="yRe-cE-1Vg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ScoreCardImageView" destination="hyI-xG-U5A" id="OGK-rI-3bw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Xa-EC-chL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445.5999999999999" y="123.68815592203899"/>
         </scene>
         <!--VetEks 2018-->
         <scene sceneID="Imx-pd-eju">
