@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		DB1A76E51EF9280B0030215F /* score.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A76E41EF9280B0030215F /* score.swift */; };
 		DB1A76E91EF947410030215F /* addScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A76E81EF947410030215F /* addScoreController.swift */; };
+		DB1A76EC1EF966630030215F /* VetEks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB1A76EA1EF966630030215F /* VetEks.xcdatamodeld */; };
 		DBBDD31F1EF7F14800D09C13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */; };
 		DBBDD3211EF7F14800D09C13 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3201EF7F14800D09C13 /* LoginVC.swift */; };
 		DBBDD3241EF7F14800D09C13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD3221EF7F14800D09C13 /* Main.storyboard */; };
-		DBBDD3271EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3251EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld */; };
 		DBBDD3291EF7F14800D09C13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD3281EF7F14800D09C13 /* Assets.xcassets */; };
 		DBBDD32C1EF7F14800D09C13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD32A1EF7F14800D09C13 /* LaunchScreen.storyboard */; };
 		DBBDD3361EF7F43400D09C13 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3351EF7F43400D09C13 /* HomeTableViewController.swift */; };
@@ -23,11 +23,11 @@
 /* Begin PBXFileReference section */
 		DB1A76E41EF9280B0030215F /* score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = score.swift; sourceTree = "<group>"; };
 		DB1A76E81EF947410030215F /* addScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addScoreController.swift; sourceTree = "<group>"; };
+		DB1A76EB1EF966630030215F /* VetEks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VetEks.xcdatamodel; sourceTree = "<group>"; };
 		DBBDD31B1EF7F14800D09C13 /* VetEks Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VetEks Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBBDD3201EF7F14800D09C13 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		DBBDD3231EF7F14800D09C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DBBDD3261EF7F14800D09C13 /* VetEks_Golf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VetEks_Golf.xcdatamodel; sourceTree = "<group>"; };
 		DBBDD3281EF7F14800D09C13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBBDD32B1EF7F14800D09C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBBDD32D1EF7F14800D09C13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,8 +76,8 @@
 				DBBDD3281EF7F14800D09C13 /* Assets.xcassets */,
 				DBBDD32A1EF7F14800D09C13 /* LaunchScreen.storyboard */,
 				DBBDD32D1EF7F14800D09C13 /* Info.plist */,
-				DBBDD3251EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld */,
 				DB1A76E41EF9280B0030215F /* score.swift */,
+				DB1A76EA1EF966630030215F /* VetEks.xcdatamodeld */,
 			);
 			path = "VetEks Golf";
 			sourceTree = "<group>";
@@ -154,10 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB1A76EC1EF966630030215F /* VetEks.xcdatamodeld in Sources */,
 				DBBDD3361EF7F43400D09C13 /* HomeTableViewController.swift in Sources */,
 				DBBDD33A1EF815A600D09C13 /* ScoreCardViewController.swift in Sources */,
 				DBBDD3381EF7F58700D09C13 /* HomeTableViewCell.swift in Sources */,
-				DBBDD3271EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld in Sources */,
 				DB1A76E91EF947410030215F /* addScoreController.swift in Sources */,
 				DBBDD3211EF7F14800D09C13 /* LoginVC.swift in Sources */,
 				DB1A76E51EF9280B0030215F /* score.swift in Sources */,
@@ -330,13 +330,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DBBDD3251EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld */ = {
+		DB1A76EA1EF966630030215F /* VetEks.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DBBDD3261EF7F14800D09C13 /* VetEks_Golf.xcdatamodel */,
+				DB1A76EB1EF966630030215F /* VetEks.xcdatamodel */,
 			);
-			currentVersion = DBBDD3261EF7F14800D09C13 /* VetEks_Golf.xcdatamodel */;
-			path = VetEks_Golf.xcdatamodeld;
+			currentVersion = DB1A76EB1EF966630030215F /* VetEks.xcdatamodel */;
+			path = VetEks.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
