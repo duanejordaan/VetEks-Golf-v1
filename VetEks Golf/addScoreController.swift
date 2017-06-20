@@ -26,7 +26,21 @@ class addScoreController: UITableViewController, UIImagePickerControllerDelegate
     }
 
    
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var submitScoreImageView: UIImageView!
+   
+    
+    @IBOutlet weak var parTextField: UITextField!
+   
+    @IBOutlet weak var strokeTextField: UITextField!
+    
+    @IBOutlet weak var grossTextField: UITextField!
+   
+    
+    @IBOutlet weak var scoreTextField: UITextField!
+    
+    
+    
     
     
    // func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -87,6 +101,22 @@ class addScoreController: UITableViewController, UIImagePickerControllerDelegate
     }
     
     
+    @IBAction func save(_ sender: Any) {
+        if nameTextField.text == "" ||  parTextField.text == "" || strokeTextField.text == "" || grossTextField.text == "" || scoreTextField.text == "" {
+            let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+        
+        
+    }
     
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -143,4 +173,4 @@ class addScoreController: UITableViewController, UIImagePickerControllerDelegate
     }
     */
 
-}
+

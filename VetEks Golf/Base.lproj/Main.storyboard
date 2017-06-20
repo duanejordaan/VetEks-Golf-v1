@@ -483,13 +483,22 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Submit Score" id="Nax-hJ-cKt">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3lK-Ef-I5V">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="yle-Db-962" kind="unwind" unwindAction="unwindToHomeScreenWithSeque:" id="FMD-5M-zee"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cad-4m-Cf3">
+                            <connections>
+                                <action selector="save:" destination="En2-cE-3If" id="QtJ-Pb-gIb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="grossTextField" destination="k7J-YE-H1X" id="RtY-4c-t9z"/>
+                        <outlet property="nameTextField" destination="xM0-s9-J3X" id="ueD-vh-KD7"/>
+                        <outlet property="parTextField" destination="5UC-19-dT3" id="42Q-rv-xTK"/>
+                        <outlet property="scoreTextField" destination="jvm-Ij-H2q" id="VwT-sq-I8W"/>
+                        <outlet property="strokeTextField" destination="r0D-5j-GXz" id="JWU-cL-1VH"/>
                         <outlet property="submitScoreImageView" destination="4wF-Rk-5fW" id="k5n-QH-Vsp"/>
                     </connections>
                 </tableViewController>
