@@ -235,7 +235,7 @@
         <!--Submit Score-->
         <scene sceneID="PgW-o4-pym">
             <objects>
-                <tableViewController id="En2-cE-3If" sceneMemberID="viewController">
+                <tableViewController id="En2-cE-3If" customClass="addScoreController" customModule="VetEks_Golf" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sCk-eO-Z53">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
