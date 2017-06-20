@@ -28,6 +28,13 @@ class ScoreCardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    
     @IBOutlet var ScoreCardImageView:UIImageView!
     //var scoreCardImage = ""
     

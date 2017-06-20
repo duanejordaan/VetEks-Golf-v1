@@ -23,11 +23,15 @@ class HomeTableViewController: UITableViewController {
         navigationController?.hidesBarsOnSwipe = false
     }
 
-    override var prefersStatusBarHidden: Bool {
-        return true
+    //override var prefersStatusBarHidden: Bool {
+    //    return true
         
-    }
+   // }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = true
+    }
     
     //var Date = ["09/04/17","19/04/17", "21/04/17", "03/05/17", "04/05/17", "18/05/17", "19/05/17", "20/05/17", "21/05/17", "22/05/17",]
     
