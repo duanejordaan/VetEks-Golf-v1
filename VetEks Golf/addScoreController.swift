@@ -8,7 +8,7 @@
 
 import UIKit
 
-class addScoreController: UITableViewController {
+class addScoreController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,20 @@ class addScoreController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+   
+    @IBOutlet weak var submitScoreImageView: UIImageView!
+    
+    
+   // func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+   //     if let selectedImage = info[UIImagePickerControllerOriginalImage] as?
+   //         UIImage {
+   //         submitScoreImageView.image = selectedImage
+   //         submitScoreImageView.contentMode = .scaleAspectFill
+   //         submitScoreImageView.clipsToBounds = true
+   //     }
+   //     dismiss(animated: true, completion: nil)
+    //}
+    
     // MARK: - Table view data source
 
     
@@ -34,10 +48,44 @@ class addScoreController: UITableViewController {
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = false
                 imagePicker.sourceType = .photoLibrary
+                
+                imagePicker.delegate = self
+                
                 present(imagePicker, animated: true, completion: nil)
             }
         }
     }
+
+    //let user take picture
+    //imagePicker.sourceType = .camera
+    
+    
+    
+    // MARK: - Image Picker Delegate
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            submitScoreImageView.image = selectedImage
+            submitScoreImageView.contentMode = .scaleAspectFill
+            submitScoreImageView.clipsToBounds = true
+        }
+        
+        let leadingConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+        leadingConstraint.isActive = true
+        
+        let trailingConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
+        trailingConstraint.isActive = true
+        
+        let topConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
+        topConstraint.isActive = true
+        
+        let bottomConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
+        bottomConstraint.isActive = true
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     
     /*
