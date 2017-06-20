@@ -18,6 +18,9 @@ class HomeTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.hidesBarsOnSwipe = false
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -26,15 +29,35 @@ class HomeTableViewController: UITableViewController {
     }
     
     
-    var Date = ["09/04/17","19/04/17", "21/04/17", "03/05/17", "04/05/17", "18/05/17", "19/05/17", "20/05/17", "21/05/17", "22/05/17",]
+    //var Date = ["09/04/17","19/04/17", "21/04/17", "03/05/17", "04/05/17", "18/05/17", "19/05/17", "20/05/17", "21/05/17", "22/05/17",]
     
-    var golfCourseNames = ["Wingate Park Country Club", "Woodhill Country Club", "Silver Lakes Country Club", "Pretoria Country Club", "Service Golf Club", "Waterkloof Country Club", "Pretoria Golf Club", "Irene Country Club", "Centurion Country Club", "Zwartkop Country Club"]
+    //var golfCourseNames = ["Wingate Golf Club", "Woodhill Country Club", "Silver Lakes Country Club", "Pretoria Country Club", "Service Golf Club", "Waterkloof Country Club", "Pretoria Golf Club", "Irene Country Club", "Centurion Country Club", "Zwartkop Country Club"]
     
-    var golfCourseImages = ["wingate.png", "woodhill.png", "silverlakes.png", "pcc.png", "download.png", "waterkloof.png", "download.png", "irene.png", "centurion.png", "download.png"]
+    //var golfCourseImages = ["wingate.png", "woodhill.png", "silverlakes.png", "pcc.png", "download.png", "waterkloof.png", "download.png", "irene.png", "centurion.png", "download.png"]
     
-    var golfScore = ["36", "30", "29", "36", "30", "29", "36", "30", "29", "35" ]
+    //var golfScore = ["36", "30", "29", "36", "30", "29", "36", "30", "29", "35" ]
     
-    
+    var scorecards:[Scorecard] = [
+        Scorecard(name: "Wingate Golf Club", date: "09/04/17", score: "36", image: "wingate.png"),
+        Scorecard(name: "Woodhill Country Club", date: "19/04/17", score: "39", image: "woodhill.png"),
+        
+        Scorecard(name: "Silver Lakes Country Club", date: "03/05/17", score: "30", image: "silverlakes.png"),
+        
+        Scorecard(name: "Pretoria Country Club", date: "06/05/17", score: "31", image: "pcc.png"),
+        
+        Scorecard(name: "Service Golf Club", date: "09/05/17", score: "30", image: "download.png"),
+        
+        Scorecard(name: "Waterkloof Country Club", date: "19/05/17", score: "34", image: "waterkloof.png"),
+        
+        Scorecard(name: "Pretoria Golf Club", date: "20/05/17", score: "29", image: "download.png"),
+        
+        Scorecard(name: "Irene Country Club", date: "21/05/17", score: "36", image: "irene.png"),
+        
+        Scorecard(name: "Centurion Country Club", date: "01/06/17", score: "34", image: "centurion.png"),
+        
+        Scorecard(name: "Zwartkop Country Club", date: "09/06/17", score: "32", image: "download.png"),
+        
+        ]
     
     
     
@@ -55,10 +78,10 @@ class HomeTableViewController: UITableViewController {
         
         
         //configue cell...
-        cell.dateLabel.text = Date[indexPath.row]
-        cell.courseLabel.text = golfCourseNames[indexPath.row]
-        cell.scoreLabel.text = golfScore[indexPath.row]
-        cell.thumbnailImageView.image = UIImage(named: golfCourseImages[indexPath.row])
+        cell.dateLabel.text = scorecards[indexPath.row].date
+        cell.courseLabel.text = scorecards[indexPath.row].name
+        cell.scoreLabel.text = scorecards[indexPath.row].score
+        cell.thumbnailImageView.image = UIImage(named: scorecards[indexPath.row].image)
         
         return cell
         
@@ -72,7 +95,7 @@ class HomeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return golfCourseNames.count
+        return scorecards.count
         
     }
 
@@ -92,10 +115,7 @@ class HomeTableViewController: UITableViewController {
         if editingStyle == .delete {
             
             //delete the row form the data source
-            golfCourseNames.remove(at: indexPath.row)
-            Date.remove(at: indexPath.row)
-            golfScore.remove(at: indexPath.row)
-            golfCourseImages.remove(at: indexPath.row)
+            scorecards.remove(at: indexPath.row)
         }
         tableView.deleteRows(at: [indexPath], with: .fade)
         
@@ -106,8 +126,8 @@ class HomeTableViewController: UITableViewController {
         // Social Sharing Button
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
                 let defaultText = "New score posted at " +
-                    self.golfCourseNames[indexPath.row]
-            if let imageToShare = UIImage(named: self.golfCourseNames[indexPath.row]) {
+                    self.scorecards[indexPath.row].name
+            if let imageToShare = UIImage(named: self.scorecards[indexPath.row].name) {
                             let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
                 self.present(activityController, animated: true, completion: nil)
             }
@@ -115,10 +135,10 @@ class HomeTableViewController: UITableViewController {
         // Delete button
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
                 // Delete the row from the data source
-                self.golfCourseNames.remove(at: indexPath.row)
-                self.Date.remove(at: indexPath.row)
-                self.golfScore.remove(at: indexPath.row)
-                self.golfCourseImages.remove(at: indexPath.row)
+                self.scorecards.remove(at: indexPath.row)
+                //self.Date.remove(at: indexPath.row)
+                //self.golfScore.remove(at: indexPath.row)
+                //self.golfCourseImages.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
         })
         shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
@@ -131,8 +151,7 @@ class HomeTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = seque.destination as!
                 ScoreCardViewController
-                destinationController.scoreCardImage =
-                    golfCourseImages[indexPath.row]
+                destinationController.scorecard = scorecards[indexPath.row]
             }
         }    }
     

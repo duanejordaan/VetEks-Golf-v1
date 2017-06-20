@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1A76E51EF9280B0030215F /* score.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A76E41EF9280B0030215F /* score.swift */; };
 		DBBDD31F1EF7F14800D09C13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */; };
 		DBBDD3211EF7F14800D09C13 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3201EF7F14800D09C13 /* LoginVC.swift */; };
 		DBBDD3241EF7F14800D09C13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD3221EF7F14800D09C13 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB1A76E41EF9280B0030215F /* score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = score.swift; sourceTree = "<group>"; };
 		DBBDD31B1EF7F14800D09C13 /* VetEks Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VetEks Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBBDD3201EF7F14800D09C13 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				DBBDD32A1EF7F14800D09C13 /* LaunchScreen.storyboard */,
 				DBBDD32D1EF7F14800D09C13 /* Info.plist */,
 				DBBDD3251EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld */,
+				DB1A76E41EF9280B0030215F /* score.swift */,
 			);
 			path = "VetEks Golf";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				DBBDD3381EF7F58700D09C13 /* HomeTableViewCell.swift in Sources */,
 				DBBDD3271EF7F14800D09C13 /* VetEks_Golf.xcdatamodeld in Sources */,
 				DBBDD3211EF7F14800D09C13 /* LoginVC.swift in Sources */,
+				DB1A76E51EF9280B0030215F /* score.swift in Sources */,
 				DBBDD31F1EF7F14800D09C13 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +321,7 @@
 				DBBDD3321EF7F14800D09C13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

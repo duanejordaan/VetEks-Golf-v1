@@ -15,8 +15,10 @@ class ScoreCardViewController: UIViewController {
             super.viewDidLoad()
             
             //do any additional setup after loading the view
-            ScoreCardImageView.image = UIImage(named: scoreCardImage)
+            ScoreCardImageView.image = UIImage(named: scorecard.image)
+            title = scorecard.name
         
+            
 
         // Do any additional setup after loading the view.
     }
@@ -27,8 +29,9 @@ class ScoreCardViewController: UIViewController {
     }
     
     @IBOutlet var ScoreCardImageView:UIImageView!
-    var scoreCardImage = ""
+    //var scoreCardImage = ""
     
+    var scorecard:Scorecard!
 
     /*
     // MARK: - Navigation

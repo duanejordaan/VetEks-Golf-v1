@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
-        <!--Home Table View Controller-->
+        <!--VetEks 2018-->
         <scene sceneID="BBy-wz-DwN">
             <objects>
                 <tableViewController id="f4q-fN-YNJ" customClass="HomeTableViewController" customModule="VetEks_Golf" customModuleProvider="target" sceneMemberID="viewController">
@@ -186,7 +186,7 @@
                             <outlet property="delegate" destination="f4q-fN-YNJ" id="D7O-eb-AVu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tmM-qx-j33"/>
+                    <navigationItem key="navigationItem" title="VetEks 2018" id="tmM-qx-j33"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQA-tJ-w5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
