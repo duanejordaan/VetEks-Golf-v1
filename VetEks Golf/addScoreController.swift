@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import CoreData
+
+var scorecard:ScoreCardMO!
+
+
 
 class addScoreController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -110,6 +115,34 @@ class addScoreController: UITableViewController, UIImagePickerControllerDelegate
             
             return
         }
+        
+        print("Name: \(nameTextField.text ?? "") ")
+        print("Par: \(parTextField.text ?? "")")
+        print("Stroke: \(strokeTextField.text ?? "")")
+        print("Gross: \(grossTextField.text ?? "")")
+        print("Score: \(scoreTextField.text ?? "")")
+        
+        
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            scorecard = ScoreCardMO(context: appDelegate.persistentContainer.viewContext)
+            scorecard.courseName = nameTextField.text
+            scorecard.parRating = parTextField.text
+            scorecard.strokeRating = strokeTextField.text
+            scorecard.gross = grossTextField.text
+            scorecard.score = scoreTextField.text
+            
+            
+            if let ScoreCardImage = submitScoreImageView.image {
+                if let imageData = UIImagePNGRepresentation(ScoreCardImage) {
+                    scorecard.image = NSData(data: imageData)
+                }
+            }
+            print("Saving data to context ...")
+            appDelegate.saveContext()
+        }
+        
+        
         
         dismiss(animated: true, completion: nil)
     }

@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
-class HomeTableViewController: UITableViewController {
-    
-    
-    
 
+class HomeTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    
+    var scorecards:[ScoreCardMO] = []
+    var fetchResultController: NSFetchedResultsController<ScoreCardMO>!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +29,30 @@ class HomeTableViewController: UITableViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.hidesBarsOnSwipe = false
+        
+        // Fetch data from data store
+        let fetchRequest: NSFetchRequest<ScoreCardMO> = ScoreCardMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "score", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            
+            do {
+                try fetchResultController.performFetch()
+                if let fetchedObjects = fetchResultController.fetchedObjects {
+                    scorecards = fetchedObjects
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
+    
+        
+    
 
     //override var prefersStatusBarHidden: Bool {
     //    return true
@@ -48,28 +76,30 @@ class HomeTableViewController: UITableViewController {
     //var golfCourseImages = ["wingate.png", "woodhill.png", "silverlakes.png", "pcc.png", "download.png", "waterkloof.png", "download.png", "irene.png", "centurion.png", "download.png"]
     
     //var golfScore = ["36", "30", "29", "36", "30", "29", "36", "30", "29", "35" ]
+   
     
-    var scorecards:[Scorecard] = [
-        Scorecard(name: "Wingate Golf Club", date: "09/04/17", score: "36", image: "wingate.png"),
-        Scorecard(name: "Woodhill Country Club", date: "19/04/17", score: "39", image: "woodhill.png"),
+    
+    //var scorecards:[Scorecard] = [
+    //    Scorecard(name: "Wingate Golf Club", date: "09/04/17", score: "36", image: "wingate.png"),
+    //    Scorecard(name: "Woodhill Country Club", date: "19/04/17", score: "39", image: "woodhill.png"),
         
-        Scorecard(name: "Silver Lakes Country Club", date: "03/05/17", score: "30", image: "silverlakes.png"),
+    //    Scorecard(name: "Silver Lakes Country Club", date: "03/05/17", score: "30", image: "silverlakes.png"),
         
-        Scorecard(name: "Pretoria Country Club", date: "06/05/17", score: "31", image: "pcc.png"),
+    //    Scorecard(name: "Pretoria Country Club", date: "06/05/17", score: "31", image: "pcc.png"),
         
-        Scorecard(name: "Service Golf Club", date: "09/05/17", score: "30", image: "download.png"),
+    //    Scorecard(name: "Service Golf Club", date: "09/05/17", score: "30", image: "download.png"),
         
-        Scorecard(name: "Waterkloof Country Club", date: "19/05/17", score: "34", image: "waterkloof.png"),
+    //    Scorecard(name: "Waterkloof Country Club", date: "19/05/17", score: "34", image: "waterkloof.png"),
         
-        Scorecard(name: "Pretoria Golf Club", date: "20/05/17", score: "29", image: "download.png"),
+    //    Scorecard(name: "Pretoria Golf Club", date: "20/05/17", score: "29", image: "download.png"),
         
-        Scorecard(name: "Irene Country Club", date: "21/05/17", score: "36", image: "irene.png"),
+    //    Scorecard(name: "Irene Country Club", date: "21/05/17", score: "36", image: "irene.png"),
         
-        Scorecard(name: "Centurion Country Club", date: "01/06/17", score: "34", image: "centurion.png"),
+    //    Scorecard(name: "Centurion Country Club", date: "01/06/17", score: "34", image: "centurion.png"),
         
-        Scorecard(name: "Zwartkop Country Club", date: "09/06/17", score: "32", image: "download.png"),
+    //    Scorecard(name: "Zwartkop Country Club", date: "09/06/17", score: "32", image: "download.png"),
         
-        ]
+    //    ]
     
     
     
@@ -91,9 +121,9 @@ class HomeTableViewController: UITableViewController {
         
         //configue cell...
         cell.dateLabel.text = scorecards[indexPath.row].date
-        cell.courseLabel.text = scorecards[indexPath.row].name
+        cell.courseLabel.text = scorecards[indexPath.row].courseName
         cell.scoreLabel.text = scorecards[indexPath.row].score
-        cell.thumbnailImageView.image = UIImage(named: scorecards[indexPath.row].image)
+        cell.thumbnailImageView.image = UIImage(data: scorecards[indexPath.row].image! as Data)
         
         return cell
         
@@ -137,26 +167,34 @@ class HomeTableViewController: UITableViewController {
         
         // Social Sharing Button
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Share", handler: { (action, indexPath) -> Void in
-                let defaultText = "New score posted at " +
-                    self.scorecards[indexPath.row].name
-            if let imageToShare = UIImage(named: self.scorecards[indexPath.row].name) {
-                            let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+            
+            let defaultText = "Added a new score at " + self.scorecards[indexPath.row].courseName!
+            
+            if let scorecardImage = self.scorecards[indexPath.row].image,
+                let imageToShare = UIImage(data: scorecardImage as Data) {
+                let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
                 self.present(activityController, animated: true, completion: nil)
             }
         })
+        
         // Delete button
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete",handler: { (action, indexPath) -> Void in
-                // Delete the row from the data source
-                self.scorecards.remove(at: indexPath.row)
-                //self.Date.remove(at: indexPath.row)
-                //self.golfScore.remove(at: indexPath.row)
-                //self.golfCourseImages.remove(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                let context = appDelegate.persistentContainer.viewContext
+                let scorecardToDelete = self.fetchResultController.object(at: indexPath)
+                context.delete(scorecardToDelete)
+                
+                appDelegate.saveContext()
+            }
+            
         })
+        
         shareAction.backgroundColor = UIColor(red: 48.0/255.0, green: 173.0/255.0, blue: 99.0/255.0, alpha: 1.0)
-        deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0);        return [deleteAction, shareAction]
+        deleteAction.backgroundColor = UIColor(red: 202.0/255.0, green: 202.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+        
+        return [deleteAction, shareAction]
     }
-    
     
     override func prepare(for seque: UIStoryboardSegue, sender: Any?) {
         if seque.identifier == "showScoreCard" {
@@ -223,5 +261,41 @@ class HomeTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: NSFetchedResultsControllerDelegate
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        
+        if let fetchedObjects = controller.fetchedObjects {
+            scorecards = fetchedObjects as! [ScoreCardMO]
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    
 
 }

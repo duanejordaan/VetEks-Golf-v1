@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ScoreCardViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -15,8 +16,8 @@ class ScoreCardViewController: UIViewController {
             super.viewDidLoad()
             
             //do any additional setup after loading the view
-            ScoreCardImageView.image = UIImage(named: scorecard.image)
-            title = scorecard.name
+            ScoreCardImageView.image = UIImage(data: scorecard.image! as Data)
+            title = scorecard.courseName
         
             
 
@@ -38,7 +39,7 @@ class ScoreCardViewController: UIViewController {
     @IBOutlet var ScoreCardImageView:UIImageView!
     //var scoreCardImage = ""
     
-    var scorecard:Scorecard!
+    var scorecard:ScoreCardMO!
 
     /*
     // MARK: - Navigation
