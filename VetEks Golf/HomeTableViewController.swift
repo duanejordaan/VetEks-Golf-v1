@@ -14,6 +14,7 @@ class HomeTableViewController: UITableViewController, NSFetchedResultsController
     
     
     var scorecards:[ScoreCardMO] = []
+    var golfers:[GolfersMO] = []
     var fetchResultController: NSFetchedResultsController<ScoreCardMO>!
     
     
@@ -48,9 +49,12 @@ class HomeTableViewController: UITableViewController, NSFetchedResultsController
             } catch {
                 print(error)
             }
-        }
-    }
+        }}
     
+    
+        
+
+
         
     
 
