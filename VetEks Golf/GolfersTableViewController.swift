@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
-class GolfersTableViewController: UITableViewController {
+class GolfersTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    
+    var golfers:[GolfersMO] = []
+    var fetchResultController: NSFetchedResultsController<GolfersMO>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,23 +23,79 @@ class GolfersTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.hidesBarsOnSwipe = false
+        
+        
+        // Fetch data from data store
+        let fetchRequest: NSFetchRequest<GolfersMO> = GolfersMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "handicap", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            
+            do {
+                try fetchResultController.performFetch()
+                if let fetchedObjects = fetchResultController.fetchedObjects {
+                    golfers = fetchedObjects
+                }
+            } catch {
+                print(error)
+            }
+        }
+    
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    // cancel to unwind to home screen
+    @IBAction func cancelToGolfersViewController(segue:UIStoryboardSegue) {
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
 
     // MARK: - Table view data source
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "Cell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! GolfersTableViewCell
+        
+        
+        //configue cell...
+    
+        
+        cell.nameLabel.text = golfers[indexPath.row].name
+        cell.surnameLabel.text = golfers[indexPath.row].surname
+        cell.handicapLabel.text = golfers[indexPath.row].handicap
+        cell.thumbnailImage.image = UIImage(data: golfers[indexPath.row].image! as Data)
+        
+        return cell
+        
+        
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return golfers.count
     }
 
     /*

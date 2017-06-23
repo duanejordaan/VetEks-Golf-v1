@@ -26,6 +26,7 @@ class addGolferController: UITableViewController, UIImagePickerControllerDelegat
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -103,7 +104,9 @@ class addGolferController: UITableViewController, UIImagePickerControllerDelegat
     }
     
     
-    @IBAction func save(_ sender: Any) {
+    
+    
+        @IBAction func save(_ sender: Any) {
         if golferName.text == "" ||  golferSurname.text == "" || golferHandicap.text == "" {
             let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)

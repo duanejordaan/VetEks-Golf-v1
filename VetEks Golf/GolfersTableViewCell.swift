@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+
+
+
+
 class GolfersTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
@@ -21,7 +26,9 @@ class GolfersTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBOutlet weak var thumbnailImage: UIImageView!
     
-    
-    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var handicapLabel: UILabel!
+    @IBOutlet weak var surnameLabel: UILabel!
 }
