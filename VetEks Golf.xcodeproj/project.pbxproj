@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A50A59C70029DE776834DAB /* Pods_VetEks_Golf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972BCDB1BB2A0AB1191FBA55 /* Pods_VetEks_Golf.framework */; };
 		DB164B931EFBE0DB0074CE39 /* addGolferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB164B921EFBE0DB0074CE39 /* addGolferController.swift */; };
 		DB164B951EFBE9FE0074CE39 /* GolfersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB164B941EFBE9FE0074CE39 /* GolfersTableViewController.swift */; };
 		DB164B971EFBEA650074CE39 /* GolfersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB164B961EFBEA650074CE39 /* GolfersTableViewCell.swift */; };
@@ -21,9 +22,12 @@
 		DBBDD3361EF7F43400D09C13 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3351EF7F43400D09C13 /* HomeTableViewController.swift */; };
 		DBBDD3381EF7F58700D09C13 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3371EF7F58700D09C13 /* HomeTableViewCell.swift */; };
 		DBBDD33A1EF815A600D09C13 /* ScoreCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3391EF815A600D09C13 /* ScoreCardViewController.swift */; };
+		DBE9E6E81EFD3864002FEAC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBE9E6E71EFD3864002FEAC8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BC80A3A2424D67A88E7EDF4 /* Pods-VetEks Golf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VetEks Golf.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VetEks Golf/Pods-VetEks Golf.debug.xcconfig"; sourceTree = "<group>"; };
+		972BCDB1BB2A0AB1191FBA55 /* Pods_VetEks_Golf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VetEks_Golf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB164B921EFBE0DB0074CE39 /* addGolferController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addGolferController.swift; sourceTree = "<group>"; };
 		DB164B941EFBE9FE0074CE39 /* GolfersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GolfersTableViewController.swift; sourceTree = "<group>"; };
 		DB164B961EFBEA650074CE39 /* GolfersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GolfersTableViewCell.swift; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		DBBDD3351EF7F43400D09C13 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		DBBDD3371EF7F58700D09C13 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		DBBDD3391EF815A600D09C13 /* ScoreCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCardViewController.swift; sourceTree = "<group>"; };
+		DBE9E6E71EFD3864002FEAC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E602FF5F5D8255A9771E4219 /* Pods-VetEks Golf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VetEks Golf.release.xcconfig"; path = "Pods/Target Support Files/Pods-VetEks Golf/Pods-VetEks Golf.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +53,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A50A59C70029DE776834DAB /* Pods_VetEks_Golf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9ADA7CCBF46CDE6F1A74D3F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1BC80A3A2424D67A88E7EDF4 /* Pods-VetEks Golf.debug.xcconfig */,
+				E602FF5F5D8255A9771E4219 /* Pods-VetEks Golf.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BA4152C3157FF6EC7DA85B64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				972BCDB1BB2A0AB1191FBA55 /* Pods_VetEks_Golf.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DBBDD3121EF7F14800D09C13 = {
 			isa = PBXGroup;
 			children = (
 				DBBDD31D1EF7F14800D09C13 /* VetEks Golf */,
 				DBBDD31C1EF7F14800D09C13 /* Products */,
+				9ADA7CCBF46CDE6F1A74D3F7 /* Pods */,
+				BA4152C3157FF6EC7DA85B64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +113,7 @@
 				DBBDD32D1EF7F14800D09C13 /* Info.plist */,
 				DB1A76E41EF9280B0030215F /* score.swift */,
 				DB1A76EA1EF966630030215F /* VetEks.xcdatamodeld */,
+				DBE9E6E71EFD3864002FEAC8 /* GoogleService-Info.plist */,
 			);
 			path = "VetEks Golf";
 			sourceTree = "<group>";
@@ -98,9 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBBDD3301EF7F14800D09C13 /* Build configuration list for PBXNativeTarget "VetEks Golf" */;
 			buildPhases = (
+				2AD1A7672AA160484D6C1116 /* [CP] Check Pods Manifest.lock */,
 				DBBDD3171EF7F14800D09C13 /* Sources */,
 				DBBDD3181EF7F14800D09C13 /* Frameworks */,
 				DBBDD3191EF7F14800D09C13 /* Resources */,
+				3BB917A62ED23EBAD39794D5 /* [CP] Embed Pods Frameworks */,
+				DF06551D3575C911811A1D46 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -151,12 +181,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBBDD32C1EF7F14800D09C13 /* LaunchScreen.storyboard in Resources */,
+				DBE9E6E81EFD3864002FEAC8 /* GoogleService-Info.plist in Resources */,
 				DBBDD3291EF7F14800D09C13 /* Assets.xcassets in Resources */,
 				DBBDD3241EF7F14800D09C13 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2AD1A7672AA160484D6C1116 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3BB917A62ED23EBAD39794D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VetEks Golf/Pods-VetEks Golf-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF06551D3575C911811A1D46 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VetEks Golf/Pods-VetEks Golf-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DBBDD3171EF7F14800D09C13 /* Sources */ = {
@@ -296,6 +375,7 @@
 		};
 		DBBDD3311EF7F14800D09C13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BC80A3A2424D67A88E7EDF4 /* Pods-VetEks Golf.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "VetEks Golf/Info.plist";
@@ -308,6 +388,7 @@
 		};
 		DBBDD3321EF7F14800D09C13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E602FF5F5D8255A9771E4219 /* Pods-VetEks Golf.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "VetEks Golf/Info.plist";

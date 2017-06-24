@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
             //to change bar background color
            //UITabBar.appearance().barTintColor = UIColor(red: 236.0/255.0, green: 240.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+            FirebaseApp.configure()
         }
         return true
     }

@@ -1,0 +1,6 @@
+framework module Pods_VetEks_Golf {
+  umbrella header "Pods-VetEks Golf-umbrella.h"
+
+  export *
+  module * { export * }
+}
