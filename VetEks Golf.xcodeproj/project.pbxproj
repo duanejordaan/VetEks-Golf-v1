@@ -14,6 +14,7 @@
 		DB1A76E51EF9280B0030215F /* score.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A76E41EF9280B0030215F /* score.swift */; };
 		DB1A76E91EF947410030215F /* addScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A76E81EF947410030215F /* addScoreController.swift */; };
 		DB1A76EC1EF966630030215F /* VetEks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB1A76EA1EF966630030215F /* VetEks.xcdatamodeld */; };
+		DB4E10511F029BA000714A4E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4E10501F029BA000714A4E /* SignUpVC.swift */; };
 		DBBDD31F1EF7F14800D09C13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */; };
 		DBBDD3211EF7F14800D09C13 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3201EF7F14800D09C13 /* LoginVC.swift */; };
 		DBBDD3241EF7F14800D09C13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD3221EF7F14800D09C13 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		DB1A76E41EF9280B0030215F /* score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = score.swift; sourceTree = "<group>"; };
 		DB1A76E81EF947410030215F /* addScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addScoreController.swift; sourceTree = "<group>"; };
 		DB1A76EB1EF966630030215F /* VetEks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VetEks.xcdatamodel; sourceTree = "<group>"; };
+		DB4E10501F029BA000714A4E /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		DBBDD31B1EF7F14800D09C13 /* VetEks Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VetEks Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBBDD3201EF7F14800D09C13 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */,
 				DBBDD3201EF7F14800D09C13 /* LoginVC.swift */,
+				DB4E10501F029BA000714A4E /* SignUpVC.swift */,
 				DBBDD3351EF7F43400D09C13 /* HomeTableViewController.swift */,
 				DBBDD3371EF7F58700D09C13 /* HomeTableViewCell.swift */,
 				DB164B941EFBE9FE0074CE39 /* GolfersTableViewController.swift */,
@@ -246,6 +249,7 @@
 				DBBDD3361EF7F43400D09C13 /* HomeTableViewController.swift in Sources */,
 				DB164B971EFBEA650074CE39 /* GolfersTableViewCell.swift in Sources */,
 				DBBDD33A1EF815A600D09C13 /* ScoreCardViewController.swift in Sources */,
+				DB4E10511F029BA000714A4E /* SignUpVC.swift in Sources */,
 				DBBDD3381EF7F58700D09C13 /* HomeTableViewCell.swift in Sources */,
 				DB1A76E91EF947410030215F /* addScoreController.swift in Sources */,
 				DB164B931EFBE0DB0074CE39 /* addGolferController.swift in Sources */,

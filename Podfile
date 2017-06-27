@@ -6,5 +6,8 @@ target 'VetEks Golf' do
   use_frameworks!
 
   # Pods for VetEks Golf
+pod 'Firebase/Storage'
 pod 'Firebase/Core'
+pod 'Firebase/Auth'
 end
+
