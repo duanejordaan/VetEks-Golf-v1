@@ -1073,6 +1073,7 @@
                         <outlet property="nameTextField" destination="Lir-nA-yUt" id="Kvf-8o-q2m"/>
                         <outlet property="passwordTextField" destination="Fo5-ED-A4b" id="4IJ-FY-m7a"/>
                         <outlet property="profileImage" destination="dbO-ev-BhD" id="vwb-Uh-TdV"/>
+                        <outlet property="signUpButton" destination="IlZ-Vj-9AG" id="T7o-cv-v04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8n-kw-5Fd" sceneMemberID="firstResponder"/>

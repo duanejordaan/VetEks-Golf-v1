@@ -12,7 +12,17 @@ import FirebaseAuth
 import FirebaseDatabase
 
 
+
+
 class SignUpVC: UIViewController {
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var signUpButton: UIButton!
     
     var selectedImage: UIImage?
     
@@ -23,20 +33,54 @@ class SignUpVC: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpVC.handleSelectProfileImageView))
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
+        
+        
+   //    handleTextField()
     }
 
+   // func handleTextField() {
+   //     nameTextField.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: UIControlEvents.editingChanged)
+   //     emailTextField.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: UIControlEvents.editingChanged)
+   //     passwordTextField.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: UIControlEvents.editingChanged)
+        
+   // }
+    
+  //  func textFieldDidChange() {
+  //      guard let username = nameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty,
+  //          let password = passwordTextField.text, !password.isEmpty else {
+  //              signUpButton.setTitleColor(UIColor.lightText, for: UIControlState.normal)
+   //             signUpButton.isEnabled = false
+   //             return
+   //     }
+        
+   //     signUpButton.setTitleColor(UIColor.darkText, for: UIControlState.normal)
+   //     signUpButton.isEnabled = true
+   // }
+    
+    
+    @IBAction func signUpButton(_ sender: Any) {
+        if nameTextField.text == "" ||  emailTextField.text == "" || passwordTextField.text == ""  {
+            let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
+        print("Name: \(nameTextField.text ?? "") ")
+        print("Email: \(emailTextField.text ?? "")")
+        print("Password: \(passwordTextField.text ?? "")")
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBOutlet weak var profileImage: UIImageView!
-    
     
     
     func handleSelectProfileImageView() {
@@ -55,10 +99,24 @@ class SignUpVC: UIViewController {
     
     @IBAction func signUpBtnPressed(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }
+               // if error != nil {
+               //     print(error!.localizedDescription)
+               //     return
+               // }
+            
+            if self.nameTextField.text == "" ||  self.emailTextField.text == "" || self.passwordTextField.text == ""  {
+                let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+            
+                return
+        }
+        
+            
+            
+            
+            
                 //let ref = Database.database().reference()
                 //let usersReference = ref.child("users")
                 
