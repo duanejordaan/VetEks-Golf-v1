@@ -56,7 +56,7 @@ class LoginVC: UIViewController {
             
             //error checking
             if self.emailTextField.text == "" || self.passwordTextField.text == ""  {
-                let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Fore!", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true, completion: nil)
