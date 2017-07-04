@@ -15,6 +15,9 @@
 		DB1A76E91EF947410030215F /* addScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1A76E81EF947410030215F /* addScoreController.swift */; };
 		DB1A76EC1EF966630030215F /* VetEks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB1A76EA1EF966630030215F /* VetEks.xcdatamodeld */; };
 		DB4E10511F029BA000714A4E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4E10501F029BA000714A4E /* SignUpVC.swift */; };
+		DB4F0DE01F0BDA39006CEE13 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB4F0DDB1F0BDA39006CEE13 /* LICENSE.txt */; };
+		DB4F0DE91F0BDA87006CEE13 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DB4F0DE61F0BDA87006CEE13 /* ProgressHUD.bundle */; };
+		DB4F0DEA1F0BDA87006CEE13 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DB4F0DE81F0BDA87006CEE13 /* ProgressHUD.m */; };
 		DBBDD31F1EF7F14800D09C13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */; };
 		DBBDD3211EF7F14800D09C13 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBDD3201EF7F14800D09C13 /* LoginVC.swift */; };
 		DBBDD3241EF7F14800D09C13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBDD3221EF7F14800D09C13 /* Main.storyboard */; };
@@ -36,6 +39,11 @@
 		DB1A76E81EF947410030215F /* addScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addScoreController.swift; sourceTree = "<group>"; };
 		DB1A76EB1EF966630030215F /* VetEks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VetEks.xcdatamodel; sourceTree = "<group>"; };
 		DB4E10501F029BA000714A4E /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		DB4F0DDB1F0BDA39006CEE13 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		DB4F0DE51F0BDA86006CEE13 /* VetEks Golf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VetEks Golf-Bridging-Header.h"; sourceTree = "<group>"; };
+		DB4F0DE61F0BDA87006CEE13 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		DB4F0DE71F0BDA87006CEE13 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		DB4F0DE81F0BDA87006CEE13 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		DBBDD31B1EF7F14800D09C13 /* VetEks Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VetEks Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBDD31E1EF7F14800D09C13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBBDD3201EF7F14800D09C13 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -117,6 +125,11 @@
 				DB1A76E41EF9280B0030215F /* score.swift */,
 				DB1A76EA1EF966630030215F /* VetEks.xcdatamodeld */,
 				DBE9E6E71EFD3864002FEAC8 /* GoogleService-Info.plist */,
+				DB4F0DDB1F0BDA39006CEE13 /* LICENSE.txt */,
+				DB4F0DE61F0BDA87006CEE13 /* ProgressHUD.bundle */,
+				DB4F0DE71F0BDA87006CEE13 /* ProgressHUD.h */,
+				DB4F0DE81F0BDA87006CEE13 /* ProgressHUD.m */,
+				DB4F0DE51F0BDA86006CEE13 /* VetEks Golf-Bridging-Header.h */,
 			);
 			path = "VetEks Golf";
 			sourceTree = "<group>";
@@ -156,6 +169,7 @@
 				TargetAttributes = {
 					DBBDD31A1EF7F14800D09C13 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -185,7 +199,9 @@
 			files = (
 				DBBDD32C1EF7F14800D09C13 /* LaunchScreen.storyboard in Resources */,
 				DBE9E6E81EFD3864002FEAC8 /* GoogleService-Info.plist in Resources */,
+				DB4F0DE91F0BDA87006CEE13 /* ProgressHUD.bundle in Resources */,
 				DBBDD3291EF7F14800D09C13 /* Assets.xcassets in Resources */,
+				DB4F0DE01F0BDA39006CEE13 /* LICENSE.txt in Resources */,
 				DBBDD3241EF7F14800D09C13 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB1A76EC1EF966630030215F /* VetEks.xcdatamodeld in Sources */,
+				DB4F0DEA1F0BDA87006CEE13 /* ProgressHUD.m in Sources */,
 				DBBDD3361EF7F43400D09C13 /* HomeTableViewController.swift in Sources */,
 				DB164B971EFBEA650074CE39 /* GolfersTableViewCell.swift in Sources */,
 				DBBDD33A1EF815A600D09C13 /* ScoreCardViewController.swift in Sources */,
@@ -382,10 +399,13 @@
 			baseConfigurationReference = 1BC80A3A2424D67A88E7EDF4 /* Pods-VetEks Golf.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "VetEks Golf/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.za.sdcapital.VetEks-Golf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VetEks Golf/VetEks Golf-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -395,10 +415,12 @@
 			baseConfigurationReference = E602FF5F5D8255A9771E4219 /* Pods-VetEks Golf.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "VetEks Golf/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.za.sdcapital.VetEks-Golf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VetEks Golf/VetEks Golf-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

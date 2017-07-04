@@ -14,6 +14,7 @@ import FirebaseDatabase
 
 
 
+
 class SignUpVC: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -28,36 +29,39 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUpVC.handleSelectProfileImageView))
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
         
         
-   //    handleTextField()
+        //    handleTextField()
     }
-
-   // func handleTextField() {
-   //     nameTextField.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: UIControlEvents.editingChanged)
-   //     emailTextField.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: UIControlEvents.editingChanged)
-   //     passwordTextField.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: UIControlEvents.editingChanged)
-        
-   // }
     
-  //  func textFieldDidChange() {
-  //      guard let username = nameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty,
-  //          let password = passwordTextField.text, !password.isEmpty else {
-  //              signUpButton.setTitleColor(UIColor.lightText, for: UIControlState.normal)
-   //             signUpButton.isEnabled = false
-   //             return
-   //     }
-        
-   //     signUpButton.setTitleColor(UIColor.darkText, for: UIControlState.normal)
-   //     signUpButton.isEnabled = true
-   // }
+    // func handleTextField() {
+    //     nameTextField.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: UIControlEvents.editingChanged)
+    //     emailTextField.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: UIControlEvents.editingChanged)
+    //     passwordTextField.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: UIControlEvents.editingChanged)
+    
+    // }
+    
+    //  func textFieldDidChange() {
+    //      guard let username = nameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty,
+    //          let password = passwordTextField.text, !password.isEmpty else {
+    //              signUpButton.setTitleColor(UIColor.lightText, for: UIControlState.normal)
+    //             signUpButton.isEnabled = false
+    //             return
+    //     }
+    
+    //     signUpButton.setTitleColor(UIColor.darkText, for: UIControlState.normal)
+    //     signUpButton.isEnabled = true
+    // }
     
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     @IBAction func signUpButton(_ sender: Any) {
         if nameTextField.text == "" ||  emailTextField.text == "" || passwordTextField.text == ""  {
             let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
@@ -80,7 +84,7 @@ class SignUpVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     
     func handleSelectProfileImageView() {
@@ -98,32 +102,21 @@ class SignUpVC: UIViewController {
     
     
     @IBAction func signUpBtnPressed(_ sender: Any) {
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-               // if error != nil {
-               //     print(error!.localizedDescription)
-               //     return
-               // }
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user: User?, error: Error?) in
+            //if error != nil {
+            //    print(error!.localizedDescription)
+            //    return
+            //}
             
+            //error checking
             if self.nameTextField.text == "" ||  self.emailTextField.text == "" || self.passwordTextField.text == ""  {
                 let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true, completion: nil)
-            
-                return
-        }
-        
-            
-            
-            
-            
-                //let ref = Database.database().reference()
-                //let usersReference = ref.child("users")
                 
-                //let uid = user?.uid
-                //let newUserReference = usersReference.child(uid!)
-                //newUserReference.setValue(["username": self.nameTextField.text!, "email": self.emailTextField.text!])
-                //print("description: \(newUserReference.description())")
+                return
+            }
             
             let uid = user?.uid
             let storageRef = Storage.storage().reference(forURL: "gs://eksvet-869e8.appspot.com").child("profile_image").child(uid!)
@@ -132,36 +125,25 @@ class SignUpVC: UIViewController {
                     if error != nil {
                         return
                     }
-                    
                     let profileImageUrl = metadata?.downloadURL()?.absoluteString
-                    let ref = Database.database().reference()
-                    let usersReference = ref.child("users")
-                    let newUserReference = usersReference.child(uid!)
-                    newUserReference.setValue(["username": self.nameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": profileImageUrl])
+                    
+                    self.setUserInfomation(profileImageUrl: profileImageUrl!, username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
                 })
-            
-            
-            
-            
-            
-            }
+            } else {
+                print("Profile Image can't be empty")
+            }             })
+        
     }
     
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String) {
+        let ref = Database.database().reference()
+        let usersReference = ref.child("users")
+        let newUserReference = usersReference.child(uid)
+        newUserReference.setValue(["username": username, "email": email, "profileImageUrl": profileImageUrl])
+        self.performSegue(withIdentifier: "toTabBar", sender: nil)
     }
-    */
+}
 
-}
-}
 extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("did Finish Picking Media")

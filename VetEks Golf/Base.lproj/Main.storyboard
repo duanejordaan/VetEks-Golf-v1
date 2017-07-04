@@ -50,7 +50,7 @@
                                         </constraints>
                                         <state key="normal" title="Login Now!"/>
                                         <connections>
-                                            <segue destination="nS7-qQ-xKR" kind="show" id="4lx-fx-Ly0"/>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SQw-jJ-dEg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -79,6 +79,12 @@
                             <constraint firstItem="vVy-M1-z89" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qGK-kk-Ehf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="aC1-bI-sy4" id="PAR-K9-DH7"/>
+                        <outlet property="loginButton" destination="GOV-h3-hUI" id="G6x-al-fLP"/>
+                        <outlet property="passwordTextField" destination="kyu-2a-R91" id="Btx-eW-K1B"/>
+                        <segue destination="nS7-qQ-xKR" kind="presentation" identifier="loginToTab" id="vFc-71-q9d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,6 +209,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="VetEks 2018" id="tmM-qx-j33">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="hTQ-ha-KGz">
+                            <connections>
+                                <action selector="logoutPressed:" destination="f4q-fN-YNJ" id="31V-Zf-Rm4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="HEE-NS-s62">
                             <connections>
                                 <segue destination="6k3-93-672" kind="presentation" identifier="addScore" id="fhw-kz-kVy"/>
@@ -1074,6 +1085,7 @@
                         <outlet property="passwordTextField" destination="Fo5-ED-A4b" id="4IJ-FY-m7a"/>
                         <outlet property="profileImage" destination="dbO-ev-BhD" id="vwb-Uh-TdV"/>
                         <outlet property="signUpButton" destination="IlZ-Vj-9AG" id="T7o-cv-v04"/>
+                        <segue destination="nS7-qQ-xKR" kind="presentation" identifier="toTabBar" id="rNe-gI-7ui"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8n-kw-5Fd" sceneMemberID="firstResponder"/>
@@ -1088,4 +1100,7 @@
         <image name="photoalbum" width="64" height="64"/>
         <image name="placeholderImg" width="225" height="225"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vFc-71-q9d"/>
+    </inferredMetricsTieBreakers>
 </document>

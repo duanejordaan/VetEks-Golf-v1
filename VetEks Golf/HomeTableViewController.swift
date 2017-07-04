@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FirebaseAuth
 
 
 class HomeTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
@@ -67,6 +68,16 @@ class HomeTableViewController: UITableViewController, NSFetchedResultsController
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
     }
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     
     @IBAction func unwindToHomeScreen(seque:UIStoryboardSegue) {
