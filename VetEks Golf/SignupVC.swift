@@ -130,7 +130,8 @@ class SignUpVC: UIViewController {
                     self.setUserInfomation(profileImageUrl: profileImageUrl!, username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
                 })
             } else {
-                print("Profile Image can't be empty")
+                ProgressHUD.showError("Profile Image can't be empty")
+               // print("Profile Image can't be empty")
             }             })
         
     }
