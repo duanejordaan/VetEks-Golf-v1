@@ -48,23 +48,10 @@ class LoginVC: UIViewController {
     
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
-            //if error != nil {
-            //    print(error!.localizedDescription)
-            //    return
-            //}
-            
-            //error checking
-            if self.emailTextField.text == "" || self.passwordTextField.text == ""  {
-                let alertController = UIAlertController(title: "Fore!", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(alertAction)
-                self.present(alertController, animated: true, completion: nil)
-                
-                return
-            }
+        AuthService.signIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
             self.performSegue(withIdentifier: "loginToTab", sender: nil)
+        },  onError: { error in
+            print(error!)
         })
-    }
 }
-
+}
