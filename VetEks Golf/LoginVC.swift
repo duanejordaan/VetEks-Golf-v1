@@ -52,6 +52,7 @@ class LoginVC: UIViewController {
             self.performSegue(withIdentifier: "loginToTab", sender: nil)
         },  onError: { error in
             print(error!)
+            ProgressHUD.showError("Incorrect login details")
         })
 }
 }
