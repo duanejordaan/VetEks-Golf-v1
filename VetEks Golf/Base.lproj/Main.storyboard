@@ -478,7 +478,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoalbum" translatesAutoresizingMaskIntoConstraints="NO" id="4wF-Rk-5fW">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoalbum" translatesAutoresizingMaskIntoConstraints="NO" id="4wF-Rk-5fW">
                                                     <rect key="frame" x="155.5" y="80.5" width="64" height="64"/>
                                                 </imageView>
                                             </subviews>
@@ -621,6 +621,9 @@
                                                         <!--2017-06-20 11:47:35 +0000-->
                                                     </date>
                                                     <locale key="locale" localeIdentifier="en_ZA"/>
+                                                    <connections>
+                                                        <action selector="dateValue:" destination="En2-cE-3If" eventType="valueChanged" id="kXM-go-uag"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>

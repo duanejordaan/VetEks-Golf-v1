@@ -11,44 +11,49 @@ import CoreData
 import FirebaseStorage
 import FirebaseDatabase
 
-var scorecard:ScoreCardMO!
+//var scorecard:ScoreCardMO!
 
 
 
-class addScoreController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        
-        
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+class addScoreController: UITableViewController {
+    var selectedImage: UIImage?
+  //  var interval = Double()
+  //  var date = NSDate()
+  
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var submitScoreImageView: UIImageView!
-    
-    
     @IBOutlet weak var parTextField: UITextField!
-    
     @IBOutlet weak var strokeTextField: UITextField!
-    
     @IBOutlet weak var grossTextField: UITextField!
-    
-    
     @IBOutlet weak var scoreTextField: UITextField!
+    @IBAction func dateValue(_ sender: Any) {
+//        let datePicker = UIDatePicker()
+//        datePicker.maximumDate = NSDate() as Date
+    }
+    
+    
+    override func viewDidLoad() {
+    
+        super.viewDidLoad()
+        
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectPhoto))
+        submitScoreImageView.addGestureRecognizer(tapGesture)
+        submitScoreImageView.isUserInteractionEnabled = true
+        
+        
+    }
+    
+    
+    func handleSelectPhoto() {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
+    }
+    
+    
+   
     
     
     
@@ -67,19 +72,19 @@ class addScoreController: UITableViewController, UIImagePickerControllerDelegate
     // MARK: - Table view data source
     
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-                let imagePicker = UIImagePickerController()
-                imagePicker.allowsEditing = false
-                imagePicker.sourceType = .photoLibrary
-                
-                imagePicker.delegate = self
-                
-                present(imagePicker, animated: true, completion: nil)
-            }
-        }
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if indexPath.row == 0 {
+//            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+//                let imagePicker = UIImagePickerController()
+//                imagePicker.allowsEditing = false
+//                imagePicker.sourceType = .photoLibrary
+//                
+//                imagePicker.delegate = self
+//                
+//                present(imagePicker, animated: true, completion: nil)
+//            }
+//        }
+//    }
     
     //let user take picture
     //imagePicker.sourceType = .camera
@@ -88,73 +93,132 @@ class addScoreController: UITableViewController, UIImagePickerControllerDelegate
     
     // MARK: - Image Picker Delegate
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            submitScoreImageView.image = selectedImage
-            submitScoreImageView.contentMode = .scaleAspectFill
-            submitScoreImageView.clipsToBounds = true
-        }
-        
-        let leadingConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
-        leadingConstraint.isActive = true
-        
-        let trailingConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
-        trailingConstraint.isActive = true
-        
-        let topConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
-        topConstraint.isActive = true
-        
-        let bottomConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
-        bottomConstraint.isActive = true
-        
-        dismiss(animated: true, completion: nil)
-    }
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        
+//        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            submitScoreImageView.image = selectedImage
+//            submitScoreImageView.contentMode = .scaleAspectFill
+//            submitScoreImageView.clipsToBounds = true
+//        }
+//        
+//        let leadingConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+//        leadingConstraint.isActive = true
+//        
+//        let trailingConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
+//        trailingConstraint.isActive = true
+//        
+//        let topConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
+//        topConstraint.isActive = true
+//        
+//        let bottomConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
+//        bottomConstraint.isActive = true
+//        
+//        dismiss(animated: true, completion: nil)
+//    }
     
     
     @IBAction func save(_ sender: Any) {
-        if nameTextField.text == "" ||  parTextField.text == "" || strokeTextField.text == "" || grossTextField.text == "" || scoreTextField.text == "" {
-            let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            present(alertController, animated: true, completion: nil)
-            
-            return
-        }
-        
-        print("Name: \(nameTextField.text ?? "") ")
-        print("Par: \(parTextField.text ?? "")")
-        print("Stroke: \(strokeTextField.text ?? "")")
-        print("Gross: \(grossTextField.text ?? "")")
-        print("Score: \(scoreTextField.text ?? "")")
-        
-        
-        
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            scorecard = ScoreCardMO(context: appDelegate.persistentContainer.viewContext)
-            scorecard.courseName = nameTextField.text
-            scorecard.parRating = parTextField.text
-            scorecard.strokeRating = strokeTextField.text
-            scorecard.gross = grossTextField.text
-            scorecard.score = scoreTextField.text
-            
-            
-            if let ScoreCardImage = submitScoreImageView.image {
-                if let imageData = UIImagePNGRepresentation(ScoreCardImage) {
-                    scorecard.image = NSData(data: imageData)
+        ProgressHUD.show("Waiting...", interaction: false)
+        if let scoreImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(scoreImg, 0.1) {
+            let photoIdString = NSUUID().uuidString
+            print(photoIdString)
+            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("scorecards").child(photoIdString)
+            storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                    ProgressHUD.showError(error!.localizedDescription)
+                    return
                 }
-            }
-            print("Saving data to context ...")
-            appDelegate.saveContext()
+                let photoUrl = metadata?.downloadURL()?.absoluteString
+                self.sendDataToDatabase(photoUrl: photoUrl!)
+            })
+        } else {
+            ProgressHUD.showError("Profile Image can't be empty")
         }
-        
-        
-        
-        dismiss(animated: true, completion: nil)
     }
     
     
     
+    
+        
+//        if nameTextField.text == "" ||  parTextField.text == "" || strokeTextField.text == "" || grossTextField.text == "" || scoreTextField.text == "" {
+//            let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+//            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            alertController.addAction(alertAction)
+//            present(alertController, animated: true, completion: nil)
+//            
+//            return
+//        }
+//        
+//        print("Name: \(nameTextField.text ?? "") ")
+//        print("Par: \(parTextField.text ?? "")")
+//        print("Stroke: \(strokeTextField.text ?? "")")
+//        print("Gross: \(grossTextField.text ?? "")")
+//        print("Score: \(scoreTextField.text ?? "")")
+//        
+//        
+//        
+//        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+//            scorecard = ScoreCardMO(context: appDelegate.persistentContainer.viewContext)
+//            scorecard.courseName = nameTextField.text
+//            scorecard.parRating = parTextField.text
+//            scorecard.strokeRating = strokeTextField.text
+//            scorecard.gross = grossTextField.text
+//            scorecard.score = scoreTextField.text
+//            
+//            
+//            if let ScoreCardImage = submitScoreImageView.image {
+//                if let imageData = UIImagePNGRepresentation(ScoreCardImage) {
+//                    scorecard.image = NSData(data: imageData)
+//                }
+//            }
+//            print("Saving data to context ...")
+//            appDelegate.saveContext()
+//        }
+//        
+//        
+//        
+//        dismiss(animated: true, completion: nil)
+//    }
+    
+    func sendDataToDatabase(photoUrl: String) {
+        let ref = Database.database().reference()
+        let scoreReference = ref.child("scorecards")
+        let newScoreId = scoreReference.childByAutoId().key
+        let newScoreReference = scoreReference.child(newScoreId)
+        newScoreReference.setValue(["photoUrl": photoUrl, "name": nameTextField.text!, "par": parTextField.text!, "stroke": strokeTextField.text!, "gross": grossTextField.text!, "score": scoreTextField.text!], withCompletionBlock: {
+            (error, ref) in
+            if error != nil {
+                ProgressHUD.showError(error!.localizedDescription)
+                return
+            }
+            ProgressHUD.showSuccess("Success")
+        })
+    }
+    
+}
+
+extension addScoreController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("did Finish Picking Media")
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            selectedImage = image
+            submitScoreImageView.image = image
+            
+            let leadingConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+            leadingConstraint.isActive = true
+            
+            let trailingConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
+            trailingConstraint.isActive = true
+            
+            let topConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
+            topConstraint.isActive = true
+            
+            let bottomConstraint = NSLayoutConstraint(item: submitScoreImageView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: submitScoreImageView.superview, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
+            bottomConstraint.isActive = true
+        }
+        dismiss(animated: true, completion: nil)
+}
+
 }
 
 /*
