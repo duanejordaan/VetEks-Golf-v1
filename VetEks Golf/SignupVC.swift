@@ -102,43 +102,58 @@ class SignUpVC: UIViewController {
     
     
     @IBAction func signUpBtnPressed(_ sender: Any) {
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user: User?, error: Error?) in
-            //error checking
-            if self.nameTextField.text == "" ||  self.emailTextField.text == "" || self.passwordTextField.text == ""  {
-                let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(alertAction)
-                self.present(alertController, animated: true, completion: nil)
-                
-                return
-            }
-            
-            let uid = user?.uid
-            let storageRef = Storage.storage().reference(forURL: "gs://eksvet-869e8.appspot.com").child("profile_image").child(uid!)
-            if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-                storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                    if error != nil {
-                        return
-                    }
-                    let profileImageUrl = metadata?.downloadURL()?.absoluteString
-                    
-                    self.setUserInfomation(profileImageUrl: profileImageUrl!, username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
-                })
-            } else {
-                ProgressHUD.showError("Profile Image can't be empty")
-               // print("Profile Image can't be empty")
-            }             })
-        
-    }
-    
-    func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String) {
-        let ref = Database.database().reference()
-        let usersReference = ref.child("users")
-        let newUserReference = usersReference.child(uid)
-        newUserReference.setValue(["username": username, "email": email, "profileImageUrl": profileImageUrl])
-        self.performSegue(withIdentifier: "toTabBar", sender: nil)
+        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+            AuthService.signUp(username: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
+                self.performSegue(withIdentifier: "toTabBar", sender: nil)
+            }, onError: { (errorString) in
+                print(errorString!)
+            })
+        } else {
+            ProgressHUD.showError("Profile Image can't be empty")
+            //print("Profile Image can't be empty")
+        }
     }
 }
+
+        
+        
+//        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user: User?, error: Error?) in
+//            //error checking
+//            if self.nameTextField.text == "" ||  self.emailTextField.text == "" || self.passwordTextField.text == ""  {
+//                let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+//                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                alertController.addAction(alertAction)
+//                self.present(alertController, animated: true, completion: nil)
+//                
+//                return
+//            }
+//            
+//            let uid = user?.uid
+//            let storageRef = Storage.storage().reference(forURL: "gs://eksvet-869e8.appspot.com").child("profile_image").child(uid!)
+//            if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+//                storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
+//                    if error != nil {
+//                        return
+//                    }
+//                    let profileImageUrl = metadata?.downloadURL()?.absoluteString
+//                    
+//                    self.setUserInfomation(profileImageUrl: profileImageUrl!, username: self.nameTextField.text!, email: self.emailTextField.text!, uid: uid!)
+//                })
+//            } else {
+//                ProgressHUD.showError("Profile Image can't be empty")
+//               // print("Profile Image can't be empty")
+//            }             })
+//        
+//    }
+    
+//    func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String) {
+//        let ref = Database.database().reference()
+//        let usersReference = ref.child("users")
+//        let newUserReference = usersReference.child(uid)
+//        newUserReference.setValue(["username": username, "email": email, "profileImageUrl": profileImageUrl])
+//        self.performSegue(withIdentifier: "toTabBar", sender: nil)
+//    }
+
 
 extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
