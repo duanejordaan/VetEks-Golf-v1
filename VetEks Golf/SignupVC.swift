@@ -103,11 +103,6 @@ class SignUpVC: UIViewController {
     
     @IBAction func signUpBtnPressed(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user: User?, error: Error?) in
-            //if error != nil {
-            //    print(error!.localizedDescription)
-            //    return
-            //}
-            
             //error checking
             if self.nameTextField.text == "" ||  self.emailTextField.text == "" || self.passwordTextField.text == ""  {
                 let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
