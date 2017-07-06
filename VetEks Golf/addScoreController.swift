@@ -192,10 +192,19 @@ class addScoreController: UITableViewController {
                 return
             }
             ProgressHUD.showSuccess("Success")
-        })
+            self.nameTextField.text = ""
+            self.parTextField.text = ""
+            self.strokeTextField.text = ""
+            self.grossTextField.text = ""
+            self.scoreTextField.text = ""
+            self.submitScoreImageView.image = UIImage(named: "placeholder-photo")
+            self.selectedImage = nil
+            self.tabBarController?.selectedIndex = 0        })
     }
     
 }
+
+
 
 extension addScoreController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
