@@ -18,7 +18,7 @@ import FirebaseDatabase
 class addScoreController: UITableViewController {
     var selectedImage: UIImage?
   //  var interval = Double()
-  //  var date = NSDate()
+   // var actDate = Date()
   
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -27,10 +27,8 @@ class addScoreController: UITableViewController {
     @IBOutlet weak var strokeTextField: UITextField!
     @IBOutlet weak var grossTextField: UITextField!
     @IBOutlet weak var scoreTextField: UITextField!
-    @IBAction func dateValue(_ sender: Any) {
-//        let datePicker = UIDatePicker()
-//        datePicker.maximumDate = NSDate() as Date
-    }
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     
     override func viewDidLoad() {
@@ -42,10 +40,32 @@ class addScoreController: UITableViewController {
         submitScoreImageView.addGestureRecognizer(tapGesture)
         submitScoreImageView.isUserInteractionEnabled = true
         
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateStyle = DateFormatter.Style.short
+//        let actDate = dateFormatter.stringFromDate(datePicker.date)
         
     }
     
-    
+    @IBAction func dateValue(_ sender: Any) {
+      // var actDate = UIDatePicker()
+       //datePicker.maximumDate = NSDate() as Date
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        
+        let actDate = dateFormatter.string(from: NSDate() as Date)
+        
+        
+  //      actDate = dateFormatter.string(from: self.datePicker.date)
+        //        _ = self.datePicker?.date.timeIntervalSince1970
+//        
+       // _ = dateFormatter.string(from: datePicker.date)
+        //let _: String = dateFormatter.string(from: (sender as AnyObject).date)
+        
+    }
+
+
     func handleSelectPhoto() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -130,6 +150,7 @@ class addScoreController: UITableViewController {
                 }
                 let photoUrl = metadata?.downloadURL()?.absoluteString
                 self.sendDataToDatabase(photoUrl: photoUrl!)
+                
             })
         } else {
             ProgressHUD.showError("Profile Image can't be empty")
@@ -185,7 +206,7 @@ class addScoreController: UITableViewController {
         let scoreReference = ref.child("scorecards")
         let newScoreId = scoreReference.childByAutoId().key
         let newScoreReference = scoreReference.child(newScoreId)
-        newScoreReference.setValue(["photoUrl": photoUrl, "name": nameTextField.text!, "par": parTextField.text!, "stroke": strokeTextField.text!, "gross": grossTextField.text!, "score": scoreTextField.text!], withCompletionBlock: {
+        newScoreReference.setValue(["photoUrl": photoUrl, "name": nameTextField.text!, "par": parTextField.text!, "stroke": strokeTextField.text!, "date": datePicker.date.timeIntervalSince1970, "gross": grossTextField.text!, "score": scoreTextField.text!], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
